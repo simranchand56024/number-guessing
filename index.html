@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Number Guessing Game</title>
+
+	<style>
+		body {
+			font-family: sans-serif;
+			width: 50%;
+			/* max-width: 00px;
+			min-width: 480px; */
+			margin: 0 auto;
+			background-image: url('image.jpg');
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+	</style>
+</head>
+
+<body>
+	<h1 style="font-size: 60px; font-family: Georgia, 'Times New Roman', Times, serif;">Guess The Number</h1>
+	<p style="font-size: 40px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: blueviolet;">
+		We have selected a random number between 1 - 10.
+	</p>
+	<p style="font-size: 40px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: red;">......See you can guess it or not.......</p>
+
+	<div class="form" style="font-size: 30px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+		<label for="guessField">
+			Enter a guess:
+		</label>
+		
+		<input type="text" id="guessField"
+			class="guessField" style="font-size: 30px;">
+		
+		<input type="submit" value="Submit guess"
+			class="guessSubmit" id="submitguess" style="background-color: red; border-radius: 4px; font-size: 20px; padding: 10px 24px; border: 2px solid #4CAF50;">
+	</div>
+
+	<script type="text/javascript">
+
+		// Generate a Random Number
+		let y = Math.floor(Math.random() * 10 + 1);
+
+		// Counting the number of guesses
+		// made for correct Guess
+		let guess = 1;
+
+		document.getElementById("submitguess").onclick = function () {
+
+			// Number guessed by user
+			let x = document.getElementById("guessField").value;
+
+			if (x == y) {
+				alert("CONGRATULATIONS!!! YOU GUESSED IT RIGHT IN "
+					+ guess + " GUESS ");
+			}
+
+			/* If guessed number is greater than actual number*/
+			else if (x > y) {
+				guess++;
+				alert("OOPS SORRY!! TRY A SMALLER NUMBER");
+			}
+			else {
+				guess++;
+				alert("OOPS SORRY!! TRY A GREATER NUMBER")
+			}
+		}
+	</script>
+</body>
+</html>
